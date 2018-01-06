@@ -80,7 +80,7 @@ public class MiniParser385 {
 	
 	public static void main(String[] args) {
 		List<String> dataList = new ArrayList<String>();
-		dataList.add("324");
+		//dataList.add("324");
 		dataList.add("[123,[456,[789]]]");
 		for(String s : dataList){
 			NestedInteger r = new MiniParser385().deserializeV3(s);
