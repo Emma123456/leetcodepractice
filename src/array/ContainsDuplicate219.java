@@ -31,7 +31,6 @@ public class ContainsDuplicate219 {
 				distinct.get(nums[i]).add(i);
 			}
 		}
-
 		return r;
 	}
 
