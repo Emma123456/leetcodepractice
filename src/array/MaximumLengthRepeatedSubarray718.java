@@ -3,6 +3,7 @@ package array;
 public class MaximumLengthRepeatedSubarray718 {
 	/**
 	 * 这是一个暴力枚举。每个A的下标i，分别与B的每个下标j作为起点，判断最长的重复数组长度
+	 * http://blog.csdn.net/flying_all/article/details/79367714
 	 * @param A
 	 * @param B
 	 * @return
