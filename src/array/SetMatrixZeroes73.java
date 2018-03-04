@@ -40,7 +40,7 @@ public class SetMatrixZeroes73 {
 
 	/**
 	 * 遍历如果某一行包含元素0，则修改matrix[i][0] =0;如果某一列包含元素0，则修改matrix[0][j]=0;
-	 * 但是第0行和第0列会共享同一个空间matrix[0][0]，则需要添加一个变量col0，col0=0表示第0列为0；matrix[0][0]则表示第0行为0
+	 * 但是第0行和第0列会共享同一个空间matrix[0][0]，则需要添加一个变量col0，col0=0表示第0列为0；matrix[0][0]=0则表示第0行为0
 	 * @param matrix
 	 */
 	public void setZeroesV2(int[][] matrix) {
