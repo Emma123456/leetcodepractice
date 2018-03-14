@@ -53,7 +53,7 @@ public class FindAllDuplicatesInArray {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		new FindAllDuplicatesInArray().findDuplicatesV2(new int[]{4,3,2,7,8,2,3,1});
 	}
 
 }
