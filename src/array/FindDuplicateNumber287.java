@@ -2,8 +2,9 @@ package array;
 
 public class FindDuplicateNumber287 {
 	/**
-	 * Cycle detection 1 Floyd's Tortoise and Hare 2 Brent's algorithm 3
-	 * Gosper's algorithm
+	 * Cycle detection 1 Floyd's Tortoise and Hare 
+	 * 2 Brent's algorithm 
+	 * 3 Gosper's algorithm
 	 * 
 	 * @param nums
 	 * @return
@@ -50,7 +51,7 @@ public class FindDuplicateNumber287 {
 
 	/**
 	 * Brent's algorithm
-	 *  Brent's cycle-finding algorithm
+	 * Brent's cycle-finding algorithm
 	 * http://www.csie.ntnu.edu.tw/~u91029/Function.html#5
 	 * @param nums
 	 * @return

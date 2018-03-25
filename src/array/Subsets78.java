@@ -17,6 +17,14 @@ public class Subsets78 {
 		return result;
 	}
 
+	/**
+	 * 每个位置可以选择：不操作，保持上一步的状态；或者可能是从start到n-1的任意一个元素；
+	 * 下一步的元素的选择范文一定是当前选择元素的下一个位置到n-1
+	 * @param result
+	 * @param list
+	 * @param nums
+	 * @param start
+	 */
 	private void backTrack(List<List<Integer>> result, List<Integer> list, int[] nums, int start) {
 		result.add(new ArrayList<Integer>(list));
 		for (int i = start; i < nums.length; i++) {
@@ -45,6 +53,8 @@ public class Subsets78 {
 			}
 			result.add(list);
 		}
+		
+		
 		return result;
 	}
 	
