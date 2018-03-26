@@ -44,6 +44,7 @@ public class BestTime714 {
 	 * 贪心：关键是选择一个能不能卖掉股票的点，重新开始寻找买入机会。
 	 * 例如序列  1 3 2 8 ，如果发现2<3，就完成交易买1卖3，此时，由于fee=2，那么收益=(3-1-fee)+(8-2-fee) < (8-1-fee)，说明卖早了。
 	 * 令maxP是当前最大的price，当(maxP-prices[i]>=fee)，时则可以在maxP处卖出，且不会存在早卖的情况。
+	 * 解释二：如果股票降到了maxP-fee这个值以下，那就可以在maxP卖掉。
 	 * @param prices
 	 * @param fee
 	 * @return
@@ -68,6 +69,29 @@ public class BestTime714 {
 			}
 		}
 		return profit+curProfit;
+	}
+	
+	/**
+	 * 更费解的方法
+	 * @param prices
+	 * @param fee
+	 * @return
+	 */
+	public int maxProfitV4(int[] prices, int fee) {
+		int n = prices.length;
+		if (n < 2)
+			return 0;
+		int minP = prices[0];
+		int profit = 0;
+		for (int i = 1; i < prices.length; i++) {
+			if(prices[i]<minP){
+				minP = prices[i];
+			}else if(prices[i] - fee-minP>0){
+				profit += prices[i] - fee-minP;
+				minP = prices[i] - fee;
+			}
+		}
+		return profit;
 	}
 
 	/**
@@ -102,9 +126,9 @@ public class BestTime714 {
 	}
 
 	public static void main(String[] args) {
-		int[] prices = new int[]{1, 3, 2, 8, 9};
+		int[] prices = new int[]{1, 4, 5, 8};
 		int fee = 2;
-		int r = new BestTime714().maxProfitV2(prices, fee);
+		int r = new BestTime714().maxProfitV4(prices, fee);
 		System.out.println(r);
 	}
 
