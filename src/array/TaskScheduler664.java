@@ -132,10 +132,29 @@ public class TaskScheduler664 {
 		}
 		return time;
 	}
+	/**
+	 * 填充空格的思路
+	 * @param tasks
+	 * @param n
+	 * @return
+	 */
+	public int leastIntervalV4(char[] tasks, int n) {
+		int[] map = new int[26];
+		for (char ch : tasks) {
+			map[ch - 'A']++;
+		}
+		Arrays.sort(map);
+		int idleSlot = (map[25] - 1) * n;//最后一行不需要空格
+		int maxVal = map[25] - 1;
+		for (int i = 24; i >= 0 && map[i] > 0; i--) {
+			idleSlot -= Math.min(map[i], maxVal);
+		}
+		return idleSlot > 0 ? idleSlot + tasks.length : tasks.length;
+	}
 	public static void main(String[] args) {
 		char[] tasks = new char[]{'A','A','A','A','A','B','C','D','E'};
 		int n = 2;
-		int r = new TaskScheduler664().leastIntervalV3(tasks, n);
+		int r = new TaskScheduler664().leastIntervalV4(tasks, n);
 		System.out.println(r);
 	}
 
