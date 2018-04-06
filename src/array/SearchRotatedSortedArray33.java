@@ -64,8 +64,30 @@ public class SearchRotatedSortedArray33 {
 	    return -1;
 	}
 	
+	public int searchV3(int[] nums, int target) {
+		int lo = 0, hi = nums.length - 1;
+	    while (lo <= hi) {
+	        int mid = lo + (hi - lo) / 2;
+	        if(target==nums[mid]) return mid;
+ 	        if(nums[mid]<nums[hi]){//从mid到hi是有序的
+	        	if(target>nums[mid] && target<=nums[hi]){
+	        		lo = mid+1;
+	        	}else{
+	        		hi = mid-1;
+	        	}
+	        }else{//从lo到mid是有序的
+	        	if(target>=nums[lo] && target<nums[mid]){
+	        		hi = mid-1;
+	        	}else{
+	        		lo = mid+1;
+	        	}
+	        }
+	        
+	    }
+	    return -1;
+	}
 	public static void main(String[] args) {
-			int r = new SearchRotatedSortedArray33().searchV2(new int[] { 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}, 13);
+			int r = new SearchRotatedSortedArray33().searchV3(new int[] { 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}, 111);
 			System.out.println("\t"+r);
 		
 	}
