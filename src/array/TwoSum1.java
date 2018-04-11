@@ -1,5 +1,6 @@
 package array;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +23,15 @@ public class TwoSum1 {
             }
         }
         return new int[]{-1,-1};
+    }
+	/**
+	 * 两指针，需要在排序好的数组中操作。排序数组，数组下标会发生变化
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	public int[] twoSumV2(int[] nums, int target) {
+		return null;
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
