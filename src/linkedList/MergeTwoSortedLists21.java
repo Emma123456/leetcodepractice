@@ -34,6 +34,7 @@ public class MergeTwoSortedLists21 {
 				preNode.next = l2;
 				l2= l2.next;
 			}
+			preNode = preNode.next;
 		}
 		if(l1!=null){
 			preNode.next = l1;
