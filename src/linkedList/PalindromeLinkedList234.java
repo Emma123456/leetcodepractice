@@ -8,7 +8,7 @@ package linkedList;
  */
 public class PalindromeLinkedList234 {
 	/**
-	 * 查找到LinkedList的一半，然后把前一部分逆转；最后比较两部分是否相同
+	 * 查找到LinkedList的一半，然后把后一部分逆转；最后比较两部分是否相同
 	 * 
 	 * @param head
 	 * @return
