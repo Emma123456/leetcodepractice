@@ -63,4 +63,9 @@ public class FindLargestValue515 {
         }
         
     }
+    public static void main(String[] args) {
+		char[][] aa = new char[4][];
+		aa[0][0] = 48+8;
+		System.out.println(aa[0]);
+	}
 }
