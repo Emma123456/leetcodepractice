@@ -64,7 +64,7 @@ public class PyramidTransitionMatrixV2 {
 		return false;
 	}
 	public static void main(String[] args) {
-		boolean r = new PyramidTransitionMatrixV2().pyramidTransition("CBDDA", Arrays.asList("ACC","ACA","AAB","BCA","BCB","BAC","BAA","CAC","BDA","CAA","CCA","CCC","CCB","DAD","CCD","DAB","ACD","DCA","CAD","CBB","ABB","ABC","ABD","BDB","BBC","BBA","DDA","CDD","CBC","CBA","CDA","DBA","ABA"));
+		boolean r = new PyramidTransitionMatrixV2().pyramidTransition("AAAA", Arrays.asList("AAA"));
 		System.out.println(r);
 	}
 }
