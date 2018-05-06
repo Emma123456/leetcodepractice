@@ -22,7 +22,7 @@ public class IncreasingSubsequences491 {
 	private void dfs(int[] nums, int idx, int len, List<Integer> list) {
 		if (idx >= nums.length)
 			return;
-		if (idx == 0 || nums[idx] >= nums[idx - 1]) {
+		if (list.size() == 0 || nums[idx] >= list.get(list.size()-1)) {
 			list.add(nums[idx]);
 			if (list.size() == len) {
 				result.add(new ArrayList<Integer>(list));
@@ -41,7 +41,9 @@ public class IncreasingSubsequences491 {
 	}
 
 	/**
-	 * 我不太习惯用这种思维解决问题；但是这种方式更高效 从下标i开始数：下一个从i+1开始枚举；一直到最后结尾 时间复杂度(n^n)
+	 * 我不太习惯用这种思维解决问题；但是这种方式更高效 
+	 * 从下标i开始数：下一个从i+1开始枚举；一直到最后结尾 
+	 * 时间复杂度(n^2)
 	 * 
 	 * @param nums
 	 * @param idx
