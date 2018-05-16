@@ -79,4 +79,49 @@ public class CourseSchedule207 {
 
 		return count == numCourses;
 	}
+	
+	/**
+	 * 基本上是 canFinishV2 的递归版本，这个版本速度更快
+	 * @param numCourses
+	 * @param prerequisites
+	 * @return
+	 */
+	public boolean canFinishV3(int numCourses, int[][] prerequisites) {
+        int[] inDegree = new int[numCourses];
+        boolean[] visited = new boolean[numCourses];
+        List<List<Integer>> graph = new ArrayList<List<Integer>>(numCourses);
+        for(int i=0;i<numCourses;i++){
+            graph.add(new ArrayList<Integer>());
+        }
+        for(int i=0;i<prerequisites.length;i++){
+            inDegree[prerequisites[i][0]]++;
+            graph.get(prerequisites[i][1]).add(prerequisites[i][0]);
+        }
+        for(int i=0;i<numCourses;i++){
+            if(visited[i]==false && inDegree[i]==0){
+                if(!bfs(graph,visited,inDegree,i)){
+                    return false;
+                }
+            }
+        }
+        for(int i=0;i<numCourses;i++){
+            if(visited[i]==false) return false;
+        }
+        return true;
+    }
+	
+	private boolean bfs(List<List<Integer>> graph,boolean[] visited,int[] inDegree,int index){
+        if(visited[index]) return false;
+        visited[index] = true;
+        for(Integer toCourse : graph.get(index)){
+            inDegree[toCourse]--;
+            if(inDegree[toCourse]==0){
+                if(!bfs(graph,visited,inDegree,toCourse)){
+                    return false;
+                }
+            }
+            
+        }
+        return true;
+    }
 }
