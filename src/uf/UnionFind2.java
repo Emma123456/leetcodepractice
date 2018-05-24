@@ -1,9 +1,11 @@
 package uf;
 
+import java.util.Arrays;
 
 public class UnionFind2 {
 	private int[] parent;
 	private int[] rank;
+	private int group;
 
 	public UnionFind2(int n) {
 		init(n);
@@ -19,21 +21,24 @@ public class UnionFind2 {
 		for (int i = 0; i < n; i++) {
 			parent[i] = i;
 		}
+		this.group = n;
 		rank = new int[n];
+		Arrays.fill(rank, 1);
 	}
 
 	/**
 	 * 查找val的根节点
 	 * 
-	 * @param val
+	 * @param p
 	 * @return
 	 */
-	public int find(int val) {
-		if (parent[val] == val) {
-			return val;
+	public int find(int p) {
+		while (p != parent[p]) {
+			// 将p节点的父节点设置为它的爷爷节点
+			parent[p] = parent[parent[p]];
+			p = parent[p];
 		}
-		parent[val] = find(parent[val]);
-		return parent[val];
+		return p;
 	}
 
 	public void union(int val1, int val2) {
@@ -41,13 +46,17 @@ public class UnionFind2 {
 		int f2 = find(val2);
 		if (f1 == f2)
 			return;
+		// ་将小树作为大树的子树
 		if (rank[f1] < rank[f2]) {
-			parent[f2] = f1;
-			rank[f1] += rank[f2];
-		} else {
 			parent[f1] = f2;
 			rank[f2] += rank[f1];
+		} else {
+			parent[f2] = f1;
+			rank[f1] += rank[f2];
 		}
+		group--;
 	}
-
+	public int getGroupCount() {
+		return this.group;
+	}
 }
