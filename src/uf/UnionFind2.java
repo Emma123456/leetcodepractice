@@ -59,4 +59,8 @@ public class UnionFind2 {
 	public int getGroupCount() {
 		return this.group;
 	}
+	
+	public boolean isConnected(int p,int q) {
+        return find(p) == find(q);
+    }
 }
