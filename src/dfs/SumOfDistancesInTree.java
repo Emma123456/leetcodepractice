@@ -16,8 +16,8 @@ public class SumOfDistancesInTree {
 	 * @return
 	 */
 	public int[] sumOfDistancesInTree(int N, int[][] edges) {
-		answer = new int[N];//存储以每个节点为子树的路径和
-		count = new int[N];//存储以每个节点为子树的节点数
+		answer = new int[N];//存储以每个节点为根节点的路径和
+		count = new int[N];//存储以每个节点为根节点的子树的节点数
 		Arrays.fill(count,1);//默认所有节点都有1个节点
 		Map<Integer,List<Integer>> edgeMap = new HashMap<Integer,List<Integer>>();
 		for (int i = 0; i < N; ++i){
@@ -94,4 +94,9 @@ public class SumOfDistancesInTree {
         
         return pathCounts;
     }
+    public static void main(String[] args) {
+		int[][] edges = new int[][]{ new int[]{0,1},new int[]{0,2},new int[]{2,3},new int[]{2,4},new int[]{2,5}} ;
+		int N = 6;
+		new SumOfDistancesInTree().sumOfDistancesInTree(N, edges);
+	}
 }
