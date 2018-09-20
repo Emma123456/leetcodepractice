@@ -73,7 +73,7 @@ public class SumOfDistancesInTree {
             edgeMap.get(edge[1]).add(edge[0]);
         }
         for(int i=0;i<N;i++){
-            boolean[] pathNums = new boolean[N];
+            boolean[] pathNums = new boolean[N];//从i到j节点是否计算过=pathNums[j]
             pathNums[i] = true;
             answer[i] = dfs(i,edgeMap,pathNums,0);
         }
