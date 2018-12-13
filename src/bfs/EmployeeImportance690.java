@@ -1,6 +1,5 @@
 package bfs;
 
-import dfs.Employee;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -30,5 +29,5 @@ public class EmployeeImportance690 {
         return value;
     }
 }
-}
+
 

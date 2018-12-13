@@ -24,7 +24,7 @@ public class MaximumDepth559 {
 		return level;
 	}
 	/**
-	 * 哇，迭代速度更快
+	 * 哇，递归速度更快
 	 * @param root
 	 * @return
 	 */
