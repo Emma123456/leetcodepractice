@@ -21,8 +21,10 @@ public class ShortestPathVisitingAllNodes847 {
 
         while (!queue.isEmpty()) {
             State state = queue.poll();
+            System.out.println(state.source+"\t"+state.mask);
             for(int next : graph[state.source]){
                 int nextMask = state.mask | (1<<next) ;
+
                 if(dp[next][nextMask]>dp[state.source][state.mask]+1){
                     dp[next][nextMask] = dp[state.source][state.mask]+1;
                     queue.offer(new State(next,nextMask));
