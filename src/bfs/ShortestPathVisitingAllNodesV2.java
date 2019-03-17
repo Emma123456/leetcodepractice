@@ -15,6 +15,12 @@ public class ShortestPathVisitingAllNodesV2 {
         int r = new ShortestPathVisitingAllNodesV2().shortestPathLengthBFS(graph);
         System.out.println(r);
     }
+
+    /**
+     * 去掉for(int i=0;i<size;i++) 这层循环，可以提升3ms。
+     * @param graph
+     * @return
+     */
     public int shortestPathLengthBFS(int[][] graph) {
         int N = graph.length;
         Queue<State> queue = new LinkedList();
