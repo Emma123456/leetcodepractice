@@ -60,22 +60,22 @@ public class ArrayPartition561 {
      * @return
      */
     public int arrayPairSumV3(int[] nums) {
-    	int[] exist = new int[20001];
+    	int[] exsit = new int[20000+1];
     	for(int i=0;i<nums.length;i++){
-    		exist[nums[i]+10000]++;
-    	}
-    	int sum = 0;
+    		exsit[nums[i]+10000]++;
+		}
+		int sum = 0;
     	boolean odd = true;
-    	for(int i=0;i<exist.length;i++){
-    		while(exist[i]>0){
+    	for(int i=0;i<exsit.length;i++){
+    		while(exsit[i]>0){
     			if(odd){
-    				sum += i - 10000;
-    			}
-    			odd = !odd;
-    			exist[i]--;
-    		}
-    	}
-    	return sum;
+    				sum += i-100000;
+				}
+				odd = !odd;
+				exsit[i]--;
+			}
+		}
+		return sum;
     }
 	public static void main(String[] args) {
 		int[] nums = new int[]{1,8,3,3,5,5};
