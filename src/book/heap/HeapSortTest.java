@@ -1,4 +1,4 @@
-package book.tree;
+package book.heap;
 
 public class HeapSortTest {
     public static void main(String[] args){

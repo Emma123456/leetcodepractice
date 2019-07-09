@@ -1,4 +1,4 @@
-package book.tree;
+package book.heap;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

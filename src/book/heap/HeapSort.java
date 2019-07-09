@@ -1,4 +1,4 @@
-package book.tree;
+package book.heap;
 
 /**
  * 堆排序
