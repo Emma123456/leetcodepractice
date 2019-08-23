@@ -97,6 +97,8 @@ public class Package {
     }
 
 
+
+
     /**
      * 0-1背包问题升级 在满足背包最大重量的前提下，要价值最高
      * @param weight
@@ -263,7 +265,7 @@ public class Package {
         nums[1] = new int[]{7,8};
         nums[2] = new int[]{2,3,4};
         nums[3] = new int[]{4,9,6,1};
-        nums[4] = new int[]{9,7,9,4,5};
+        nums[4] = new int[]{2,7,9,4,5};
         int r = new Package().trianglePath(nums,5,5);
         System.out.println(r);
 

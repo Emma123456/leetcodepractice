@@ -3,7 +3,7 @@ package bfs;
 import java.util.*;
 
 /**
- 现在每个词之间建立图关系。然后使用BFS或者DFS遍历
+ 先在每个词之间建立图关系。然后使用BFS或者DFS遍历
  如果一个词改变其中一个字母能变成另外一个词典中的词，那他们之间就有连线。
  */
 public class WordLadder127 {

@@ -61,7 +61,17 @@ public class BM {
         return m;
     }
 
-    // b 表示模式串，m 表示长度，suffix，prefix 数组事先申请好了
+    //
+
+    /**
+     * b 表示模式串，m 表示长度，suffix，prefix 数组事先申请好了
+     * suffix[k]表示长度为k的后缀，在b中出现的最大起始下标
+     * prefix[k]表示长度为k的后缀子串，是不是有匹配的前缀子串
+     * @param b
+     * @param m
+     * @param suffix
+     * @param prefix
+     */
     private void generateGS(char[] b, int m, int[] suffix, boolean[] prefix) {
 
         for (int i = 0; i < m; ++i) { // 初始化
@@ -101,6 +111,23 @@ public class BM {
         char[] b = "abd".toCharArray();
         int pos = new BM().bm(a,a.length,b,b.length);
         System.out.println(pos);
+
+
+        b = "abbcabc".toCharArray();
+        int m = b.length;
+        int[] suffix = new int[m];
+        boolean[] prefix = new boolean[m];
+        new BM().generateGS(b,m,suffix,prefix);
+        System.out.println(suffix);
+
+        for(int i : suffix){
+            System.out.print(i+"\t");
+        }
+        System.out.println();
+        for(boolean i : prefix){
+            System.out.print(i+"\t");
+        }
+        System.out.println();
     }
 
 }
