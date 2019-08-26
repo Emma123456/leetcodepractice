@@ -35,7 +35,7 @@ public class RoundRobinArray {
     public String dequeue(){
         if(head==tail) return null;
         String ret = items[head];
-        head++;
+        head= (head+1)%n;
         return ret;
     }
 }
