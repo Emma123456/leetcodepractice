@@ -1,0 +1,8 @@
+array
+    Three Sum（求三数之和）
+    Majority Element（求众数）
+    Missing Positive（求缺失的第一个正数）
+
+linkedlist
+    Linked List Cycle I（环形链表）
+    Merge k Sorted Lists（合并 k 个排序链表)
