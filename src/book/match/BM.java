@@ -1,4 +1,4 @@
-package book;
+package book.match;
 
 import java.util.Arrays;
 
