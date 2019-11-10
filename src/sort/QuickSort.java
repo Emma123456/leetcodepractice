@@ -38,7 +38,7 @@ public class QuickSort {
 	}
 
 	public static void main(String[] args) {
-		int[] nums = new int[]{5 ,2 ,8, 9 ,2, 3, 4 ,9};
+		int[] nums = new int[]{3,4,4,2};
 		quickSort(nums);
 		for(int num : nums){
 			System.out.print(num+"\t");

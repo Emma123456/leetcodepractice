@@ -67,6 +67,7 @@ public class Graph {
     /**
      * 使用Kaha算法实现拓扑排序：能够输出按照依赖关系，顶点的执行顺序
      * 这个算法的本质是一个BFS
+     * 每个顶点访问一次，每条边访问一次，时间复杂度O(E+V)
      */
     public void topSortByKahn(){
         //计算每个顶点的入度
@@ -96,6 +97,10 @@ public class Graph {
         }
     }
 
+    /**
+     * 使用DFS算法实现拓扑排序：能够输出按照依赖关系，顶点的执行顺序
+     * 每个顶点访问一次，每条边访问一次，时间复杂度O(E+V)
+     */
     public void topSortByDFS(){
         //逆邻接矩阵
         LinkedList<Integer>[] inverseAdg = new LinkedList[this.v];
