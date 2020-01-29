@@ -1,5 +1,6 @@
 package dp;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class WordBreak139 {
@@ -7,6 +8,7 @@ public class WordBreak139 {
         return wordBreak(s,wordDict,0);
     }
     private boolean wordBreak(String s, List<String> wordDict,int start) {
+        System.out.println(start);
         if(start >= s.length()){
             return true;
         }
@@ -21,4 +23,9 @@ public class WordBreak139 {
         return false;
     }
 
+    public static void main(String[] args){
+        String s = "aaaaaaab";
+        List<String> wordDict = Arrays.asList("a","aa","aaa","aaaa","aaaaa","aaaaaa");
+        new WordBreak139().wordBreak(s, wordDict);
+    }
 }
