@@ -130,6 +130,7 @@ public class SinglyLinkedList {
         return false;
     }
 
+
     class Node{
         int data;
         Node next;
