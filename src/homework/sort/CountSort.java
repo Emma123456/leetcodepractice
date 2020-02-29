@@ -1,7 +1,5 @@
 package homework.sort;
 
-import java.util.Arrays;
-
 /**
  * 计数排序
  */
@@ -52,7 +50,8 @@ public class CountSort {
         }
         System.out.println();
     }
-    public static void main(String[] args){
+
+    public static void orderScore(){
         Examinee[] nums = new Examinee[8];
         nums[0] = new Examinee("张三",2);
         nums[1] = new Examinee("李四",5);
@@ -65,7 +64,23 @@ public class CountSort {
 
         countSort(nums);
         printArray(nums);
+    }
+    public static void main(String[] args){
+        Stuff[] stuffs = new  Stuff[5];
+        stuffs[0] = new Stuff("张三",100);
+        stuffs[1] = new Stuff("李四",3);
+        stuffs[2] = new Stuff("王五",20);
+        stuffs[3] = new Stuff("赵六",20);
+        stuffs[4] = new Stuff("孙琦",40);
 
-        Arrays.sort(nums);
+        countSort(stuffs);
+
+        for(int i=0;i<stuffs.length;i++){
+            System.out.print(stuffs[i].getName()+":"+stuffs[i].getAge());
+            if(i!=stuffs.length-1){
+                System.out.print(' ');
+            }
+        }
+        System.out.println();
     }
 }
