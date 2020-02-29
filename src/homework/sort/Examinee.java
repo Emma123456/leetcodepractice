@@ -3,7 +3,7 @@ package homework.sort;
 /**
  * 考生
  */
-public class Examinee implements CountSortAble<Examinee> {
+public class Examinee implements CountSortAble<Examinee> ,Comparable<Examinee>{
     //姓名
     private String name;
     //分数
@@ -20,7 +20,9 @@ public class Examinee implements CountSortAble<Examinee> {
         return this.score;
     }
 
-
+    public int compareTo(Examinee o){
+        return this.getScore() - o.getScore();
+    }
     public String getName() {
         return name;
     }

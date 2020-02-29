@@ -1,5 +1,7 @@
 package homework.sort;
 
+import java.util.Arrays;
+
 /**
  * 计数排序
  */
@@ -63,5 +65,7 @@ public class CountSort {
 
         countSort(nums);
         printArray(nums);
+
+        Arrays.sort(nums);
     }
 }
