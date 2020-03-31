@@ -71,7 +71,16 @@ public class BinarySearchTree<T extends Comparable> {
         while(node != null){
             if(data.compareTo(node.data) == 0){
                 if(node.left ==null && node.right ==null){
-                    node.data = null;
+                    if(pre == null){
+                        root = null;
+                    }else{
+                        if(pre.left == node){
+                            pre.left = null;
+                        }else{
+                            pre.right = null;
+                        }
+                    }
+
                 }else if(node.right == null){
                     //左子树不为空
                     if(pre != null){
@@ -90,7 +99,7 @@ public class BinarySearchTree<T extends Comparable> {
                     }
                     node.data = minNode.data;
                     if(minNodeOfp == null){
-                        minNode.data = null;
+                        node.right = null;
                     }else{
                         minNodeOfp.left = minNode.left;
                     }

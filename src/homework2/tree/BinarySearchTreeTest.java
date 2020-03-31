@@ -7,6 +7,8 @@ public class BinarySearchTreeTest {
     BinarySearchTree<Integer> btree = new BinarySearchTree<>();
     btree.levelPrint();
     btree.insert(10);
+    btree.delete(10);
+    btree.levelPrint();
     btree.insert(1);
         btree.insert(0);
     btree.insert(30);
