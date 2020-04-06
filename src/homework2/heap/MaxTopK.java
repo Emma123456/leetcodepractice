@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * 为动态数据集查找最大的K个元素
+ * 线程不安全
  */
 public class MaxTopK {
     private int k;

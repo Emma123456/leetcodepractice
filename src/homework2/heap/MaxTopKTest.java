@@ -13,5 +13,8 @@ public class MaxTopKTest {
         top.insert(1);
         top.insert(8);
         System.out.println(top.top());
+
+        top.insert(4);
+        System.out.println(top.top());
     }
 }

@@ -2,6 +2,7 @@ package homework2.heap;
 
 /**
  * 最小堆
+ * 线程不安全
  * @param <T>
  */
 public class Heap2<T extends Comparable> {
