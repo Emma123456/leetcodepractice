@@ -44,6 +44,7 @@ public class GraphV2Test {
         graph.addEdge(6,7,70);
         graph.addEdge(7,11,50);
 
+
         List<Integer>  path = graph.astar(0,10);
         System.out.println(path);
     }
