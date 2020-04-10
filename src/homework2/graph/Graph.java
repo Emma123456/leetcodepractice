@@ -35,6 +35,11 @@ public class Graph {
         adjacency[sid].add(edge);
     }
 
+
+    public void addEdge(int sid, int tid){
+        this.addEdge(sid,tid,1);
+    }
+
     /**
      * 计算从sid到tid的最短路径。返回值是经过路径的节点id
      * @param sid
@@ -87,6 +92,68 @@ public class Graph {
         if(predecessor[tid] != -1){
             visitPredecessor(predecessor,predecessor[tid],path);
         }
+    }
+
+    /**
+     * 拓扑排序
+     * @return
+     */
+    public List<Integer> topSortByKahn(){
+        int[] inDegree = new int[v];
+        for(int i = 0; i< adjacency.length; i++){
+            for(Edge edge : adjacency[i]){
+                inDegree[edge.tid] ++;
+            }
+        }
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i=0;i<inDegree.length;i++){
+            if(inDegree[i] == 0){
+                queue.add(i);
+            }
+        }
+
+        List<Integer> path = new ArrayList<>();
+        while(! queue.isEmpty()){
+            int node = queue.poll();
+            path.add(node);
+            for(Edge edge : adjacency[node]){
+                inDegree[edge.tid]--;
+                if(inDegree[edge.tid] == 0){
+                    queue.offer(edge.tid);
+                }
+            }
+        }
+        return path;
+    }
+
+    public List<Integer> topSortByDFS(){
+        LinkedList<Integer>[] inverseAdg = new LinkedList[this.v];
+        for(int i = 0; i< adjacency.length; i++){
+            inverseAdg[i] = new LinkedList<>();
+        }
+        for(int i = 0; i< adjacency.length; i++){
+            for(Edge edge : adjacency[i]){
+                inverseAdg[edge.tid].add(edge.sid);
+            }
+        }
+        boolean[] visited = new boolean[v];
+        List<Integer> path = new ArrayList<>();
+        for(int i=0;i<this.v;i++){
+            if(visited[i] == false){
+                dfs(i,inverseAdg,visited,path);
+            }
+        }
+        return path;
+    }
+
+    private void dfs(int sid, LinkedList<Integer>[] inverseAdg, boolean[] visited,List<Integer> path) {
+        visited[sid] = true;
+        for(int tid   : inverseAdg[sid]){
+            if(visited[tid] == false){
+                dfs(tid,inverseAdg,visited,path);
+            }
+        }
+        path.add(sid);
     }
 
     private class Vertext{
