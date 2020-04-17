@@ -9,6 +9,7 @@ public class FindShortestSuperstring943 {
     private int minCost = Integer.MAX_VALUE;
     private ArrayList<Integer> bestPath;
 
+
     /**
      * 1125ms
      * @param A
