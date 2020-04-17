@@ -107,6 +107,7 @@ public class MergeKSortedLists23 {
 		}
 		return result.next;
 	}
+
 	/**
 	 * 用分治法 divide and conquer
 	 * 合并 log2 ^k次

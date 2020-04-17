@@ -58,4 +58,42 @@ public class CombinationSum40 {
 			dfs(nums, idx + 1, target);
 		}
 	}
+
+	private int[] nums;
+
+	public List<List<Integer>> combinationSum2V2(int[] candidates, int target) {
+		result.clear();
+		this.nums = candidates;
+		Arrays.sort(nums);
+		if(nums==null || nums.length==0) return result;
+		dfs(target,0,new ArrayList<Integer>());
+		return result;
+	}
+
+	/**
+	 * 按照递归树的层级，每一层有多少种选择
+	 * @param target
+	 * @param start
+	 * @param list
+	 */
+	private void dfs(int target, int start, ArrayList<Integer> list) {
+		if(target == 0) {
+			//注意结果需要完全拷贝
+			result.add(new ArrayList<Integer>(list));
+			return;
+		}
+		for(int i = start; i< nums.length;i++){
+			//元素太大，剪枝
+			if(nums[i]> target){
+				break;
+			}
+			//在同一层，重复元素不选择第二个,剪枝,
+			if(i>start && nums[i] == nums[i-1]){
+				continue;
+			}
+			list.add(nums[i]);
+			dfs(target-nums[i],i+1,list);
+			list.remove(list.size() - 1);
+		}
+	}
 }

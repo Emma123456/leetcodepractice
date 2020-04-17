@@ -70,33 +70,35 @@ public class Subsets90 {
 		}
 	}
 
+	private List<List<Integer>> result = new ArrayList<List<Integer>>();
+	private int[] nums;
+
 	/**
-	 * 深度优先搜素思路：另一种不同的实现
-	 * 上面的思路是当我遍历到nums[i]的时候，我是不是选择这个元素；
-	 * 这个的思路是：第0个位置可以没有元素，或者选择的元素nums的0-(n-1)；第二个位置可以没有元素，或者是从某个下标-(n-1)选择元素
-	 * 
-	 * 
+	 * 按照树的深度，每一层有多少个可以选择的元素
 	 * @param nums
 	 * @return
 	 */
 	public List<List<Integer>> subsetsWithDupV3(int[] nums) {
+		result.clear();
+		this.nums = nums;
 		Arrays.sort(nums);
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
-		List<Integer> each = new ArrayList<Integer>();
-		dfsV3(nums, result, each, 0);
+		if(nums==null || nums.length==0) return result;
+		for(int m = 0;m<=nums.length;m++){
+			dfs(m,0,new ArrayList<Integer>());
+		}
 		return result;
 	}
-
-	private void dfsV3(int[] nums, List<List<Integer>> result, List<Integer> each, int startPos) {
-		if (startPos <= nums.length) {
-			result.add(new ArrayList<Integer>(each));
+	private void dfs(int m, int start, ArrayList<Integer> list) {
+		if(m == 0) {
+			//注意结果需要完全拷贝
+			result.add(new ArrayList<Integer>(list));
+			return;
 		}
-		for (int i = startPos; i < nums.length; i++) {
-			if (i > startPos && nums[i] == nums[i - 1])
-				continue;
-			each.add(nums[i]);// 选择i位置
-			dfsV3(nums, result, each, i + 1);
-			each.remove(each.size() - 1);
+		for(int i = start; i< nums.length;i++){
+			if(i>start && nums[i] == nums[i-1]) continue;
+			list.add(nums[i]);
+			dfs(m-1,i+1,list);
+			list.remove(list.size() - 1);
 		}
 	}
 
