@@ -7,7 +7,7 @@ import java.util.Queue;
 
 /**
  * 二叉查找树
- * 每个节点的值大于左子树左右节点的值，小于右子树所有的值
+ * 每个节点的值大于左子树所有节点的值，小于右子树所有的值
  */
 public class BinarySearchTree<T extends Comparable> {
     private TreeNode root;

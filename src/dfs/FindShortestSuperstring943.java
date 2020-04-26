@@ -28,6 +28,7 @@ public class FindShortestSuperstring943 {
         }
         boolean[] visited = new boolean[A.length];
         dfs(A.length,0,visited,new ArrayList<Integer>());
+        System.out.println(bestPath);
         return contanctString(bestPath);
     }
 
@@ -74,7 +75,6 @@ public class FindShortestSuperstring943 {
         String str = A[path.get(0)];
         for(int i = 1; i< path.size();i++){
             String tmp = A[path.get(i)];
-
             str += tmp.substring(tmp.length()-cost[path.get(i-1)][path.get(i)]);
         }
         return str;
