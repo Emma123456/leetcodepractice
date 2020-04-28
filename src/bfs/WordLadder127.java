@@ -5,6 +5,7 @@ import java.util.*;
 /**
  先在每个词之间建立图关系。然后使用BFS或者DFS遍历
  如果一个词改变其中一个字母能变成另外一个词典中的词，那他们之间就有连线。
+ 时间复杂度O(n*26^l)  l=字符串长度；n单词个数
  */
 public class WordLadder127 {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
