@@ -68,7 +68,7 @@ public class Trie {
         }
     }
 
-    static class TrieNode{
+    class TrieNode{
         private char data;
         private boolean end;
         private TrieNode[] children = new TrieNode[26];
