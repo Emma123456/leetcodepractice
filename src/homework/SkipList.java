@@ -2,6 +2,9 @@ package homework;
 
 import java.util.Random;
 
+/**
+ * 代码来源于小灰 http://i.csdn.net
+ */
 public class SkipList {
     private static final double PROMOTE_RATE = 0.5;
     private Node head;
