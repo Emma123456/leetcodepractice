@@ -64,6 +64,9 @@ public class UNDirectedGraph {
         }
     }
 
+
+
+
     private void printPath(int[] pre, int s, int t) {
         if(s!=t){
             printPath(pre,s,pre[t]);
@@ -71,6 +74,37 @@ public class UNDirectedGraph {
         System.out.print(t+"->");
     }
 
+
+    /**
+     * 深度优先搜索，搜索从s到t的一条路径
+     * @param s
+     * @param t
+     */
+    public void dfs(int s,int t){
+        boolean[] visited = new boolean[this.v];
+        int[] pre = new int[this.v];
+        Arrays.fill(pre,-1);
+        visited[s] = true;
+        dfs(s,t,visited,pre);
+        printPath(pre,s,t);
+    }
+
+    private boolean dfs(int s, int t, boolean[] visited, int[] pre) {
+        if(s == t){
+            return true;
+        }
+        for(int i=0;i<adj[s].size();i++){
+            int to = adj[s].get(i);
+            if(!visited[to]){
+                visited[to] = true;
+                pre[to] = s;
+                if(dfs(adj[s].get(i),t,visited,pre)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public static void main(String[] args){
         UNDirectedGraph ugraph = new UNDirectedGraph(8);
@@ -86,5 +120,7 @@ public class UNDirectedGraph {
         ugraph.addEdge(6,7);
 
         ugraph.bfs(0,7);
+        System.out.println();
+        ugraph.dfs(0,7);
     }
 }
