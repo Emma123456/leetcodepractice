@@ -43,6 +43,7 @@ public class Graph {
 
         while(!queue.isEmpty()){
             Vertex minVertex = queue.poll();//获取堆顶元素并且删除
+            if(minVertex.id == t) break;
             for(int i=0;i<adg[minVertex.id].size();i++){
                 Edge edge = adg[minVertex.id].get(i);
                 Vertex nextVertex = vertexes[edge.tid];
